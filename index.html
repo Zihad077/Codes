@@ -224,7 +224,7 @@
             opacity: 0.35;
         }
 
-        /* ====== MAIN LAYOUT ====== */
+        /* ====== MAIN LAYOUT – reduced top padding ====== */
         .main-container {
             display: flex;
             flex-direction: column;
@@ -233,13 +233,13 @@
             max-width: 1200px;
             margin: 0 auto;
             min-height: 100vh;
-            padding: 72px 20px 60px;
+            padding: 20px 20px 60px;  /* was 72px top – now 20px */
         }
 
         /* ====== SEARCH BAR ====== */
         .search-form {
             position: sticky;
-            top: 20px;
+            top: 16px;   /* slightly closer to top */
             z-index: 10;
             display: flex;
             align-items: center;
@@ -266,7 +266,7 @@
             transform-origin: top center;
         }
 
-        /* ====== SEARCH BAR PULSING GLOW (the animation user wanted) ====== */
+        /* ====== SEARCH BAR PULSING GLOW ====== */
         .search-form::before {
             position: absolute;
             top: -13px;
@@ -305,7 +305,6 @@
             }
         }
 
-        /* ====== SEARCH BAR PULSE (shrink/grow animation) ====== */
         .search-form.pulse {
             animation: searchPulse 3.2s ease-in-out infinite;
         }
@@ -323,7 +322,6 @@
             }
         }
 
-        /* search bar — expanded state (when search is active) */
         .search-form.expanded {
             height: 74px;
             border-radius: 28px;
@@ -458,7 +456,7 @@
         .collection-heading {
             width: 100%;
             max-width: 1200px;
-            margin: 24px 0 18px;
+            margin: 18px 0 14px;  /* reduced top margin */
             color: #848f9b;
             font-size: 28px;
             font-weight: 650;
@@ -563,7 +561,6 @@
                     rgba(222, 240, 248, 0.03));
         }
 
-        /* Card image */
         img.art {
             position: absolute;
             z-index: 1;
@@ -581,7 +578,6 @@
             transform: translateX(-50%) translateY(-4px) scale(1.04);
         }
 
-        /* Card name */
         .card-name {
             position: absolute;
             z-index: 2;
@@ -600,7 +596,6 @@
             color: #ffffff;
         }
 
-        /* Card actions */
         .card-actions {
             position: absolute;
             z-index: 3;
@@ -613,7 +608,6 @@
             height: 49px;
         }
 
-        /* Glass button */
         .glass-button {
             position: relative;
             display: inline-flex;
@@ -887,12 +881,13 @@
         /* ====== RESPONSIVE ====== */
         @media (max-width: 560px) {
             .main-container {
-                padding: 40px 16px 40px;
+                padding: 14px 16px 40px;  /* even smaller on mobile */
             }
             .search-form {
                 padding: 0 16px 0 63px;
                 height: 58px;
                 border-radius: 18px;
+                top: 12px;
             }
             .search-form.expanded {
                 height: 64px;
@@ -947,7 +942,7 @@
             }
             .collection-heading {
                 font-size: clamp(21px, 6.4vw, 27px);
-                margin: 20px 0 14px;
+                margin: 14px 0 12px;
                 text-align: center;
             }
             .modal-content {
@@ -1004,7 +999,6 @@
             }
         }
 
-        /* smooth hover lift for buttons */
         .hover-lift {
             transition: transform 0.25s cubic-bezier(0.16, 0.8, 0.2, 1),
                 box-shadow 0.3s ease;
@@ -1014,7 +1008,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Modal close button */
         .modal-close-btn {
             transition: all 0.3s cubic-bezier(0.16, 0.8, 0.2, 1);
         }
@@ -1023,7 +1016,6 @@
             background: rgba(255, 255, 255, 0.12);
         }
 
-        /* Copy button in modal */
         .copy-btn {
             transition: all 0.3s cubic-bezier(0.16, 0.8, 0.2, 1);
         }
@@ -1070,7 +1062,6 @@
             }
         }
 
-        /* ====== LOADING SHIMMER FOR CARDS (optional) ====== */
         .code-card.loading {
             background: linear-gradient(110deg,
                     rgba(78, 116, 140, 0.05) 30%,
@@ -1118,7 +1109,7 @@
     <main class="main-container">
 
         <!-- ====== TOP BUTTONS ====== -->
-        <div class="w-full flex justify-center items-center gap-2 sm:gap-3 mb-6 z-20 px-1">
+        <div class="w-full flex justify-center items-center gap-2 sm:gap-3 mb-4 z-20 px-1"> <!-- reduced margin-bottom -->
             <button onclick="installApp()"
             class="top-btn flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[12px] sm:text-[13px] font-medium cursor-pointer border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/25 backdrop-blur-md transition-all hover:-translate-y-0.5 text-[#eff4f7] shadow-sm whitespace-nowrap">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
@@ -1236,7 +1227,6 @@
         document.getElementById('searchMode').classList.remove('hidden');
         document.getElementById('userSearch').focus();
         searchContainer.classList.add('expanded');
-        // pause the pulse while expanded
         searchContainer.classList.remove('pulse');
     }
 
@@ -1246,7 +1236,6 @@
         document.getElementById('userSearch').value = '';
         filterUserCards();
         searchContainer.classList.remove('expanded');
-        // re-start pulse after a moment
         setTimeout(() => {
             if (!searchContainer.classList.contains('expanded')) {
                 searchContainer.classList.add('pulse');
@@ -1428,8 +1417,6 @@
 
     // --- Start ---
     fetchCards();
-
-    // Re-run observer after data loads (just in case)
     setTimeout(initObserver, 800);
 </script>
 </body>
