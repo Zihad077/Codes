@@ -45,13 +45,6 @@
 
 ---
 
-## 🚀 লাইভ ডেমো (Live Demo)
+## 🚀 লাইভ (Live)
 
-> 🔗 **ভিজিট করুন:** [আপনার-ভার্সেল-লিংক.vercel.app](https://your-vercel-link.vercel.app)
-
-*(ডিপ্লয়ের পর এখানে আপনার আসল লিংকটি বসিয়ে দিন)*
-
----
-
-## 📂 প্রজেক্ট স্ট্রাকচার (Project Structure)
-
+> 🔗 **ভিজিট করুন:** [https://codesbyzd.vercel.app](https://codesbyzd.vercel.app)
