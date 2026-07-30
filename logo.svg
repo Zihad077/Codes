@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient (Deep Slate to Black) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1121" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Multi-stop Border Gradient (Cyan -> Blue -> Purple) -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="40%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+
+    <!-- Icon Stroke Gradient (Cyan to Magenta) -->
+    <linearGradient id="iconStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="60%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+
+    <!-- MAIN TITLE GRADIENT (White -> Cyan -> Purple) - Much more vibrant -->
+    <linearGradient id="textGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="45%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#A78BFA" />
+    </linearGradient>
+
+    <!-- SUBTITLE GRADIENT (Cyan -> Indigo) - Bright & bold -->
+    <linearGradient id="textGradSub" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Glassmorphism Filter -->
+    <filter id="glass" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1" />
+      <circle cx="0" cy="0" r="1.5" fill="rgba(56, 189, 248, 0.15)" />
+    </pattern>
+  </defs>
+
+  <!-- ===== BASE SHAPE ===== -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="100" fill="url(#grid)" />
+
+  <!-- ===== OUTER GLOW BORDER ===== -->
+  <rect x="16" y="16" width="480" height="480" rx="84" fill="none" stroke="url(#borderGrad)" stroke-width="4" opacity="0.8" />
+  <rect x="24" y="24" width="464" height="464" rx="76" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.3" />
+
+  <!-- ===== GLASS BACKGROUND FOR ICON ===== -->
+  <rect x="110" y="110" width="292" height="292" rx="65" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" filter="url(#glass)" />
+  
+  <!-- Blurred Orb Behind Icon (bigger & more glowing) -->
+  <circle cx="256" cy="256" r="100" fill="#3B82F6" opacity="0.25" filter="url(#neonGlow)" />
+  <circle cx="256" cy="256" r="120" fill="none" stroke="rgba(56, 189, 248, 0.15)" stroke-width="2" stroke-dasharray="12 12" />
+
+  <!-- ===== CENTRAL CODE SYMBOL (</>) - NOW MUCH BIGGER (font-size 220) ===== -->
+  <g filter="url(#neonGlow)">
+    <text x="256" y="256" 
+          font-family="'JetBrains Mono', 'Fira Code', 'Courier New', monospace" 
+          font-size="180" 
+          font-weight="900" 
+          fill="url(#iconStroke)" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          letter-spacing="-14">
+      &lt;/&gt;
+    </text>
+  </g>
+
+  <!-- ===== FLOATING NEON PARTICLES (Adjusted positions to fit bigger icon) ===== -->
+  <circle cx="105" cy="105" r="5.5" fill="#22D3EE" opacity="0.9" filter="url(#neonGlow)" />
+  <circle cx="410" cy="120" r="4.5" fill="#A78BFA" opacity="0.8" filter="url(#neonGlow)" />
+  <circle cx="115" cy="410" r="6" fill="#EC4899" opacity="0.7" filter="url(#neonGlow)" />
+  <circle cx="400" cy="390" r="3.5" fill="#FBBF24" opacity="0.8" filter="url(#neonGlow)" />
+  <circle cx="135" cy="275" r="2.5" fill="#38BDF8" opacity="0.6" />
+  <circle cx="390" cy="250" r="3" fill="#8B5CF6" opacity="0.7" />
+
+  <!-- ===== BRAND TEXT WITH IMPROVED VIBRANT COLOURS ===== -->
+  <!-- Main Title: CodesByZD (Now using vibrant White->Cyan->Purple gradient) -->
+  <text x="256" y="435" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" 
+        font-size="52" 
+        font-weight="900" 
+        fill="url(#textGradMain)" 
+        text-anchor="middle" 
+        letter-spacing="3" 
+        dominant-baseline="central">
+    CodesByZD
+  </text>
+
+  <!-- Subtitle: BUILD & DEPLOY (Now using bright Cyan->Indigo gradient) -->
+  <text x="256" y="488" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" 
+        font-size="17" 
+        font-weight="800" 
+        fill="url(#textGradSub)" 
+        text-anchor="middle" 
+        letter-spacing="6" 
+        dominant-baseline="central">
+    BUILD &amp; DEPLOY
+  </text>
+</svg>
